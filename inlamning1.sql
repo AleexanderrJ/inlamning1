@@ -1,5 +1,5 @@
 
-CREATE DATABASE inlaming1; -- skapar databasen som motsvarar en liten bokhandel
+CREATE DATABASE inlamning1; -- skapar databasen som motsvarar en liten bokhandel
 USE inlamning1; -- använder databasen för konfigurering
 
 CREATE TABLE Kunder (   -- Skapa Kunder-tabellen
