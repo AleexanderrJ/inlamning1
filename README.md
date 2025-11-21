@@ -6,5 +6,6 @@ Databasen/ER-diagrammets relationer gör det möjligt för varje beställning at
 ## ER-diagram
 Så här ser mitt ER-diagram ut till uppgiften:
 
+![ER-diagram](images/er-diagram.png)
 
 
