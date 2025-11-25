@@ -4,52 +4,52 @@
 CREATE DATABASE inlamning1; -- skapar databasen som motsvarar en liten bokhandel
 USE inlamning1; -- använder databasen för konfigurering
 
-CREATE TABLE Kunder (   -- Skapa Kunder-tabellen
-    KundID INT AUTO_INCREMENT PRIMARY KEY,
-    Namn VARCHAR(100) NOT NULL,
-    Epost VARCHAR(255) UNIQUE NOT NULL,
+CREATE TABLE Kunder (   -- Skapa Kunder-tabellen med fem attributer som innehåller kundinformation
+    KundID INT AUTO_INCREMENT PRIMARY KEY, 
+    Namn VARCHAR(100) NOT NULL, 
+    Epost VARCHAR(255) UNIQUE NOT NULL, 
     Telefon VARCHAR(30) NOT NULL,
     Adress VARCHAR(100) NOT NULL
 );
 
 
-CREATE TABLE Bocker (  -- Skapa Bocker-tabellen
-    ISBN INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE Bocker (  -- Skapa Bocker-tabellen med sex attributer som innehåller information om böcker
+    ISBN INT AUTO_INCREMENT PRIMARY KEY, 
     Forfattare VARCHAR(100) NOT NULL,
     Genre VARCHAR(50) NOT NULL,
     Titel VARCHAR(50) NOT NULL,
-    Pris DECIMAL(10,2) NOT NULL CHECK (Pris > 0),
+    Pris DECIMAL(10,2) NOT NULL CHECK (Pris > 0), 
     Lagerstatus INT NOT NULL
 );
 
 
-CREATE TABLE Bestallningar (  -- Skapa Bestallningar-tabellen
+CREATE TABLE Bestallningar (  -- Skapa Bestallningar-tabellen med fyra attributer som innehåller information om beställning
 	Ordernummer INT AUTO_INCREMENT PRIMARY KEY,
     KundID INT NOT NULL,
     Totalbelopp DECIMAL(10,2) NOT NULL CHECK (Totalbelopp > 0),
     Datum TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (KundID) REFERENCES Kunder(KundID)
+    FOREIGN KEY (KundID) REFERENCES Kunder(KundID) -- Lånar primärnyckel från KundID i Kunder-tabellen
 );
 
 
-CREATE TABLE Orderrader (   -- Skapa Orderrader-tabellen
-    OrderradID INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE Orderrader (   -- Skapa Orderrader-tabellen med fyra attributer som innehåller orderinformation
+    OrderradID INT AUTO_INCREMENT PRIMARY KEY, 
     ISBN INT NOT NULL,
     Ordernummer INT NOT NULL,
-    Antal INT NOT NULL CHECK (Antal > 0),
-    FOREIGN KEY (Ordernummer) REFERENCES Bestallningar(Ordernummer),
-    FOREIGN KEY (ISBN) REFERENCES Bocker(ISBN)
+    Antal INT NOT NULL CHECK (Antal > 0), 
+    FOREIGN KEY (Ordernummer) REFERENCES Bestallningar(Ordernummer), -- Lånar primärnyckel från ordernummer i Bestallningar-tabellen 
+    FOREIGN KEY (ISBN) REFERENCES Bocker(ISBN) -- Lånar primärnyckel från ISBN i Böcker-tabellen 
 );
 
 
-INSERT INTO Kunder (Namn, Epost, Telefon, Adress) VALUES -- Skapa kunder i kunder-tabellen.
+INSERT INTO Kunder (Namn, Epost, Telefon, Adress) VALUES -- Skapa kunder i kunder-tabellen
     ('Paul Atreides', 'paul.atreides@dune.com', '123', 'Arrakis'),
     ('Duncan Idaho', 'duncan.idaho@dune.com', '456', 'Arrakis'),
     ('Glossu Rabban', 'glossu.rabban@dune.com', '789', 'Arrakis');
 
 
 INSERT INTO Bocker (Titel, Pris, Genre, Forfattare, Lagerstatus) VALUES -- Skapa produkter i produkter-tabellen.
-    ('Dune', 199.99, 'Sci-fi', 'Frank Herbert', 10),
+    ('Dune', 199.99, 'Sci-fi', 'Frank Herbert', 10), 
     ('Chronicles of the Spice Horizon', 149.99, 'Sci-fi', 'Ravrek al-Dahim', 3),
     ('Dune: House Atreides', 199.99, 'Sci-fi', 'Brian Herbet', 5);
 
