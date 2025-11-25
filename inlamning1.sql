@@ -9,7 +9,7 @@ CREATE TABLE Kunder (   -- Skapa Kunder-tabellen
     Namn VARCHAR(100) NOT NULL,
     Epost VARCHAR(255) UNIQUE NOT NULL,
     Telefon VARCHAR(30) NOT NULL,
-    Adress VARCHAR(50) NOT NULL
+    Adress VARCHAR(100) NOT NULL
 );
 
 
