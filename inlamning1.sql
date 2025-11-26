@@ -2,11 +2,11 @@
 -- Utfört av Alexander Johansson YH25
 
 CREATE DATABASE inlamning1; -- skapar databasen som motsvarar en liten bokhandel
-USE inlamning1; -- använder databasen för konfigurering
+USE inlamning1; -- använder databasen för att kunna ändra/läsa av innehållet i databasen.
 
 CREATE TABLE Kunder (   -- Skapa Kunder-tabellen med fem attributer som innehåller kundinformation
     KundID INT AUTO_INCREMENT PRIMARY KEY, 
-    Namn VARCHAR(100) NOT NULL, 
+    Namn VARCHAR(100) NOT NULL, -- här måste det stå något
     Epost VARCHAR(255) UNIQUE NOT NULL, 
     Telefon VARCHAR(30) NOT NULL,
     Adress VARCHAR(100) NOT NULL
@@ -42,18 +42,18 @@ CREATE TABLE Orderrader (   -- Skapa Orderrader-tabellen med fyra attributer som
 );
 
 
-INSERT INTO Kunder (Namn, Epost, Telefon, Adress) VALUES -- Skapa kunder i kunder-tabellen
+INSERT INTO Kunder (Namn, Epost, Telefon, Adress) VALUES -- Infogar data i kunder-tabellen
     ('Paul Atreides', 'paul.atreides@dune.com', '123', 'Arrakis'),
     ('Duncan Idaho', 'duncan.idaho@dune.com', '456', 'Arrakis'),
     ('Glossu Rabban', 'glossu.rabban@dune.com', '789', 'Arrakis');
 
 
-INSERT INTO Bocker (Titel, Pris, Genre, Forfattare, Lagerstatus) VALUES -- Skapa produkter i produkter-tabellen.
+INSERT INTO Bocker (Titel, Pris, Genre, Forfattare, Lagerstatus) VALUES -- Infogar data i böcker-tabellen
     ('Dune', 199.99, 'Sci-fi', 'Frank Herbert', 10), 
     ('Chronicles of the Spice Horizon', 149.99, 'Sci-fi', 'Ravrek al-Dahim', 3),
     ('Dune: House Atreides', 199.99, 'Sci-fi', 'Brian Herbet', 5);
 
-
+-- För att få fram resultat visuellt från tabellerna.
 
 SELECT * FROM Kunder; -- Hämtar data från Kunder-tabellen.
 
@@ -62,3 +62,13 @@ SELECT * FROM Kunder WHERE Namn = 'Paul Atreides';  -- Hämtar endast specifik n
 SELECT * FROM Bocker WHERE Pris > 100; -- Hämtar endast produkter över 100kr från Produkter-tabellen .
 
 SELECT * FROM Bocker ORDER BY Pris DESC; -- Hämtar data med sorterat pris från Produkter-tabellen
+
+
+/*
+Där det står NOT NULL måste det stå något. 
+Primary key samt UNIQUE NOT NULL är unika värden som MÅSTE vara unika.
+
+När man exekverar raderna 1-54 så skapas databasen, tabellerna + attributerna samt lite data infogas även i tabellerna.
+Jag har adderat några SELECT FROM så att man kan visa resultat av tabellerna rent visuellt.
+
+*/
