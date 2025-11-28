@@ -4,7 +4,9 @@
 CREATE DATABASE inlamning1; -- skapar databasen som motsvarar en liten bokhandel
 USE inlamning1; -- använder databasen för att kunna ändra/läsa av innehållet i databasen.
 
-CREATE TABLE Kunder (   -- Skapa Kunder-tabellen med fem attributer som innehåller kundinformation
+
+ -- Skapa Kunder-tabellen med fem attributer som innehåller kundinformation
+CREATE TABLE Kunder (   
     KundID INT AUTO_INCREMENT PRIMARY KEY, 
     Namn VARCHAR(100) NOT NULL, 
     Epost VARCHAR(255) UNIQUE NOT NULL, 
@@ -12,9 +14,9 @@ CREATE TABLE Kunder (   -- Skapa Kunder-tabellen med fem attributer som innehål
     Adress VARCHAR(100) NOT NULL
 );
 
-
-CREATE TABLE Bocker (  -- Skapa Bocker-tabellen med sex attributer som innehåller information om böcker
-    ISBN INT AUTO_INCREMENT PRIMARY KEY, 
+ -- Skapa Bocker-tabellen med sex attributer som innehåller information om böcker
+CREATE TABLE Bocker (  
+    ISBN BIGINT PRIMARY KEY, -- Böckernas ID nummer i form av ISBN (ISBN är unikt för boken)
     Forfattare VARCHAR(100) NOT NULL,
     Genre VARCHAR(50) NOT NULL,
     Titel VARCHAR(50) NOT NULL,
@@ -22,8 +24,8 @@ CREATE TABLE Bocker (  -- Skapa Bocker-tabellen med sex attributer som innehåll
     Lagerstatus INT NOT NULL
 );
 
-
-CREATE TABLE Bestallningar (  -- Skapa Bestallningar-tabellen med fyra attributer som innehåller information om beställning
+-- Skapa Bestallningar-tabellen med fyra attributer som innehåller information om beställning
+CREATE TABLE Bestallningar ( 
 	Ordernummer INT AUTO_INCREMENT PRIMARY KEY,
     KundID INT NOT NULL,
     Totalbelopp DECIMAL(10,2) NOT NULL CHECK (Totalbelopp > 0),
@@ -32,7 +34,8 @@ CREATE TABLE Bestallningar (  -- Skapa Bestallningar-tabellen med fyra attribute
 );
 
 
-CREATE TABLE Orderrader (   -- Skapa Orderrader-tabellen med fyra attributer som innehåller orderinformation
+-- Skapa Orderrader-tabellen med fyra attributer som innehåller orderinformation
+CREATE TABLE Orderrader (   
     OrderradID INT AUTO_INCREMENT PRIMARY KEY, 
     ISBN INT NOT NULL,
     Ordernummer INT NOT NULL,
@@ -41,17 +44,17 @@ CREATE TABLE Orderrader (   -- Skapa Orderrader-tabellen med fyra attributer som
     FOREIGN KEY (ISBN) REFERENCES Bocker(ISBN) -- Lånar primärnyckel från ISBN i Böcker-tabellen 
 );
 
-
-INSERT INTO Kunder (Namn, Epost, Telefon, Adress) VALUES -- Infogar data i kunder-tabellen
+-- Infogar data i kunder-tabellen
+INSERT INTO Kunder (Namn, Epost, Telefon, Adress) VALUES 
     ('Paul Atreides', 'paul.atreides@dune.com', '123', 'Arrakis'),
     ('Duncan Idaho', 'duncan.idaho@dune.com', '456', 'Arrakis'),
     ('Glossu Rabban', 'glossu.rabban@dune.com', '789', 'Arrakis');
 
 
-INSERT INTO Bocker (Titel, Pris, Genre, Forfattare, Lagerstatus) VALUES -- Infogar data i böcker-tabellen
-    ('Dune', 199.99, 'Sci-fi', 'Frank Herbert', 10), 
-    ('Chronicles of the Spice Horizon', 149.99, 'Sci-fi', 'Ravrek al-Dahim', 3),
-    ('Dune: House Atreides', 199.99, 'Sci-fi', 'Brian Herbet', 5);
+INSERT INTO Bocker (ISBN, Titel, Pris, Genre, Forfattare, Lagerstatus) VALUES -- Infogar data i böcker-tabellen
+    ('9834032234', 'Dune', 199.99, 'Sci-fi', 'Frank Herbert', 10), 
+    ('9634982340', 'Chronicles of the Spice Horizon', 149.99, 'Sci-fi', 'Ravrek al-Dahim', 3),
+    ('9324234311', 'Dune: House Atreides', 199.99, 'Sci-fi', 'Brian Herbet', 5);
 
 -- För att få fram resultat visuellt från tabellerna.
 
@@ -67,6 +70,7 @@ SELECT * FROM Bocker ORDER BY Pris DESC; -- Hämtar data med sorterat pris från
 /*
 Där det står NOT NULL måste det stå något. 
 Primary key samt UNIQUE NOT NULL är unika värden som MÅSTE vara unika.
+ISBN är som böckernas "personnummer" är unikt och ändras inte. 
 
 När man exekverar raderna 1-54 så skapas databasen, tabellerna + attributerna samt lite data infogas även i tabellerna.
 Jag har adderat några SELECT FROM så att man kan visa resultat av tabellerna rent visuellt.
