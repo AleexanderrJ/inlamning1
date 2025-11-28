@@ -37,7 +37,7 @@ CREATE TABLE Bestallningar (
 -- Skapa Orderrader-tabellen med fyra attributer som innehåller orderinformation
 CREATE TABLE Orderrader (   
     OrderradID INT AUTO_INCREMENT PRIMARY KEY, 
-    ISBN INT NOT NULL,
+    ISBN BIGINT NOT NULL,
     Ordernummer INT NOT NULL,
     Antal INT NOT NULL CHECK (Antal > 0), 
     FOREIGN KEY (Ordernummer) REFERENCES Bestallningar(Ordernummer), -- Lånar primärnyckel från ordernummer i Bestallningar-tabellen 
