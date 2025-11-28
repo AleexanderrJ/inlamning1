@@ -6,7 +6,7 @@ USE inlamning1; -- använder databasen för att kunna ändra/läsa av innehålle
 
 CREATE TABLE Kunder (   -- Skapa Kunder-tabellen med fem attributer som innehåller kundinformation
     KundID INT AUTO_INCREMENT PRIMARY KEY, 
-    Namn VARCHAR(100) NOT NULL, -- här måste det stå något
+    Namn VARCHAR(100) NOT NULL, 
     Epost VARCHAR(255) UNIQUE NOT NULL, 
     Telefon VARCHAR(30) NOT NULL,
     Adress VARCHAR(100) NOT NULL
