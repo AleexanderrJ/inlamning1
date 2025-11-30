@@ -12,7 +12,7 @@ Relationerna gör det möjligt för kunder att (om konto finns)
 * Kunder - Innehåller information om kunder (varje kund är unik)
 * Beställningar - Innehåller information om kundernas beställningar
 * Böcker - Innehåller olika produkter i form av böcker 
-* Orderrader - Varje orderrad är unik
+* Orderrader - Varje orderrad är unik och är kopplad till en specifik beställning samt specifik bok (ISBN)
 
 
 ## Vad har jag stött på under skapandet av databas-strukturen?
