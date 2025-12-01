@@ -60,10 +60,10 @@ INSERT INTO Bocker (ISBN, Forfattare, Genre, Titel, Pris, Lagerstatus) VALUES
 INSERT INTO Orderrader (ISBN, Ordernummer, Antal) VALUES
     (9834032234, 1, 1),  
     (9634982340, 2, 1),   
-    (9324234311, 3, 2),
+    (9324234311, 3, 2);
 
 
--- infogat data i Beställningar-tabellen
+-- infogar data i Beställningar-tabellen
 INSERT INTO Bestallningar (KundID, Totalbelopp) VALUES
     (1, 79.99),     
     (2, 99.99),
