@@ -56,20 +56,19 @@ INSERT INTO Bocker (ISBN, Forfattare, Genre, Titel, Pris, Lagerstatus) VALUES
     ('9634982340', 'Ravrek al-Dahim', 'Sci-fi', 'Chronicles of the Spice Horizon', 99.99, 3),
     ('9324234311', 'Brian Herbet', 'Sci-fi', 'Dune: House Atreides', 119.99, 5);
 
+-- infogar data i Beställningar-tabellen
+INSERT INTO Bestallningar (KundID, Totalbelopp) VALUES
+    (1, 79.99),     
+    (2, 99.99),
+    (3, 199.98);   
+
 -- infogar data i Orderrader-tabellen
 INSERT INTO Orderrader (ISBN, Ordernummer, Antal) VALUES
     (9834032234, 1, 1),  
     (9634982340, 2, 1),   
     (9324234311, 3, 2);
 
-
--- infogar data i Beställningar-tabellen
-INSERT INTO Bestallningar (KundID, Totalbelopp) VALUES
-    (1, 79.99),     
-    (2, 99.99),
-    (3, 199.98);    
-
-	
+ 
 
 -- För att få fram resultat visuellt från tabellerna.
 
@@ -93,7 +92,7 @@ Primary key samt UNIQUE NOT NULL är unika värden som MÅSTE vara unika.
 ISBN är som böckernas "personnummer" är unikt och ändras inte. 
 
 
-När man exekverar raderna 1-54 så skapas databasen, tabellerna + attributerna samt lite data infogas även i tabellerna.
+När man exekverar raderna 4-69 så skapas databasen, tabellerna + attributerna samt lite data infogas även i tabellerna.
 Jag har adderat några SELECT FROM så att man kan visa resultat av tabellerna rent visuellt.
 
 */
