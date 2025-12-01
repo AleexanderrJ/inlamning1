@@ -10,9 +10,9 @@ Relationerna gör det möjligt för
 
 
 ## Tabeller
-* Kunder - Innehåller information om kunder (varje kund är unik)
-* Beställningar - Innehåller information om kundernas beställningar
-* Böcker - Innehåller olika produkter i form av böcker 
+* Kunder - Innehåller information om varje kund (alla kunder är unika)
+* Beställningar - Innehåller kundernas beställningar
+* Böcker - Innehåller butikens produkter i form av böcker 
 * Orderrader - Varje orderrad är unik och är kopplad till en specifik beställning samt specifik bok (ISBN)
 
 
