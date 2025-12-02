@@ -19,7 +19,7 @@ CREATE TABLE Bocker (
     ISBN BIGINT PRIMARY KEY, -- Böckernas ID nummer i form av ISBN (ISBN är unikt för boken)
     Forfattare VARCHAR(100) NOT NULL,
     Genre VARCHAR(50) NOT NULL,
-    Titel VARCHAR(50) NOT NULL,
+    Titel VARCHAR(100) NOT NULL,
     Pris DECIMAL(10,2) NOT NULL CHECK (Pris > 0),  -- CHECK gör så att värdet måste vara större än 0.
     Lagerstatus INT NOT NULL
 );
