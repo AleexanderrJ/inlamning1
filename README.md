@@ -1,6 +1,6 @@
 ## En liten bokhandel (inlämning1) utfört av Alexander Johansson från YH25
 
-Jag har skapat en databas till en liten bokhandel (e-handel). Här måste man vara kund för att lägga beställningar på olika böcker.
+Jag har skapat en relationsdatabas till en liten bokhandel (e-handel). Här måste man vara kund för att lägga beställningar på olika böcker.
 
 Relationerna gör det möjligt för
 * En kund kan ha flera beställningar (1–M)
