@@ -3,7 +3,7 @@
 Jag har skapat en relationsdatabas till en liten bokhandel (e-handel). Här måste man vara kund för att lägga beställningar på olika böcker.
 
 Relationerna gör det möjligt för
-* En kund kan ha flera beställningar (1–M)
+* En kund att ha en eller flera beställningar (1–M)
 * En bok kan förekomma i många beställningar (1–M)
 * En beställning kan ha flera orderrader (1–M), d.v.s flera böcker i samma beställning.
 * Många till Många (N:M) relation mellan böcker och beställningar
